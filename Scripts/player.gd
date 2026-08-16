@@ -28,3 +28,11 @@ func get_movement_input(delta: float):
 		velocity.x = max_speed * direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, max_speed)
+
+func _input(event: InputEvent) -> void:
+	charge("charge")
+
+
+func charge(charge_button: String) -> void:
+	if Input.is_action_just_pressed(charge_button):
+		print("charge")

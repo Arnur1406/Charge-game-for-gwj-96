@@ -61,3 +61,7 @@ frame_progress = 0.92023647
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1770020986]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_48xlc")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1559289937]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=482825056]
