@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh8ri81vmstal"]
 
-[ext_resource type="FontFile" uid="uid://6wty4yhwpujm" path="res://Assets/Fonts/Game Font.ttf" id="1_28flt"]
+[ext_resource type="FontFile" uid="uid://d387psltf727v" path="res://Assets/Fonts/OnceUponATimeFont.ttf" id="1_48xlc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erv1k"]
 bg_color = Color(0, 0, 0, 1)
@@ -66,12 +66,12 @@ offset_bottom = 128.0
 
 [node name="GameName" type="Label" parent="ButtonControl/VBoxContainer" unique_id=1260716353]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_fonts/font = ExtResource("1_48xlc")
 text = "GAME NAME"
 
 [node name="PlayButton" type="Button" parent="ButtonControl/VBoxContainer" unique_id=829735821]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_fonts/font = ExtResource("1_48xlc")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_28flt")
@@ -81,7 +81,7 @@ text = "START"
 
 [node name="OptionsButton" type="Button" parent="ButtonControl/VBoxContainer" unique_id=353563081]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_fonts/font = ExtResource("1_48xlc")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_28flt")
@@ -91,7 +91,7 @@ text = "OPTIONS"
 
 [node name="QuitButton" type="Button" parent="ButtonControl/VBoxContainer" unique_id=56694370]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_fonts/font = ExtResource("1_48xlc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_erv1k")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_28flt")
 theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")

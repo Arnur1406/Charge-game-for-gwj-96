@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://6wty4yhwpujm"
-path="res://.godot/imported/Game Font.ttf-a1e037744c8d7b468f80475d56313399.fontdata"
+uid="uid://bj8t7vh47tq6d"
+path="res://.godot/imported/Cairopixel.ttf-acd13fecd010e944fc0bdae82b47980e.fontdata"
 
 [deps]
 
-source_file="res://Assets/Fonts/Game Font.ttf"
-dest_files=["res://.godot/imported/Game Font.ttf-a1e037744c8d7b468f80475d56313399.fontdata"]
+source_file="res://Assets/Fonts/Cairopixel.ttf"
+dest_files=["res://.godot/imported/Cairopixel.ttf-acd13fecd010e944fc0bdae82b47980e.fontdata"]
 
 [params]
 
