@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b5r7enco0iv0v"]
+
+[ext_resource type="Script" uid="uid://dtg0y54rf8f4j" path="res://Scripts/charge_taker_enemy.gd" id="1_3111x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1515m"]
+
+[node name="ChargeTakerEnemy" type="Area2D" unique_id=846047806]
+script = ExtResource("1_3111x")
+enemy_charge = -35
+metadata/_custom_type_script = "uid://crckq3pf7jk0c"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295633470]
+shape = SubResource("CapsuleShape2D_1515m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2069322876]
+
+[node name="TemporaryTexture" type="Polygon2D" parent="." unique_id=923951323]
+polygon = PackedVector2Array(-11, -12, 9, -11, 10, 6, 4, 12, -2, 14, -7, 6, -12, -2, -9, -9)
+
+[node name="LeftSide" type="RayCast2D" parent="." unique_id=85674118]
+position = Vector2(-16, 0)
+
+[node name="RightSide" type="RayCast2D" parent="." unique_id=1161890073]
+position = Vector2(16, 0)
