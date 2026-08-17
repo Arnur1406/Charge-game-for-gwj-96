@@ -29,7 +29,7 @@ func get_movement_input(delta: float):
 	else:
 		velocity.x = move_toward(velocity.x, 0, max_speed)
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	charge("charge")
 
 
