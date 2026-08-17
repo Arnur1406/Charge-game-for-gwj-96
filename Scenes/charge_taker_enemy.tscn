@@ -21,6 +21,8 @@ polygon = PackedVector2Array(-11, -12, 9, -11, 10, 6, 4, 12, -2, 14, -7, 6, -12,
 
 [node name="LeftSide" type="RayCast2D" parent="." unique_id=85674118]
 position = Vector2(-16, 0)
+scale = Vector2(0.5, 0.5)
 
 [node name="RightSide" type="RayCast2D" parent="." unique_id=1161890073]
 position = Vector2(16, 0)
+scale = Vector2(0.5, 0.5)
