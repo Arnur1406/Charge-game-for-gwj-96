@@ -6,6 +6,7 @@
 
 [node name="ChargeTakerEnemy" type="Area2D" unique_id=846047806]
 script = ExtResource("1_3111x")
+enemy_speed = 50.0
 enemy_charge = -35
 metadata/_custom_type_script = "uid://crckq3pf7jk0c"
 
@@ -15,6 +16,7 @@ shape = SubResource("CapsuleShape2D_1515m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2069322876]
 
 [node name="TemporaryTexture" type="Polygon2D" parent="." unique_id=923951323]
+color = Color(0.95022565, 3.9948522e-06, 9.62615e-07, 1)
 polygon = PackedVector2Array(-11, -12, 9, -11, 10, 6, 4, 12, -2, 14, -7, 6, -12, -2, -9, -9)
 
 [node name="LeftSide" type="RayCast2D" parent="." unique_id=85674118]
