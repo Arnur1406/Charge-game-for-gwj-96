@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c1rcx1ugv48qw"]
+
+[ext_resource type="PackedScene" uid="uid://w8ef3md4fv0" path="res://Scenes/charge_bar.tscn" id="1_5x6se"]
+
+[node name="in_game_ui" type="Control" unique_id=1240375359]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="health_margin_container" type="MarginContainer" parent="." unique_id=1092607342]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+
+[node name="charge_bar" parent="health_margin_container" unique_id=1183743767 instance=ExtResource("1_5x6se")]
+custom_minimum_size = Vector2(50, 360)
+layout_mode = 2

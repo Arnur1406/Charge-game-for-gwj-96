@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://w8ef3md4fv0"]
+
+[ext_resource type="Texture2D" uid="uid://bn0d6rthwf2jt" path="res://Assets/Sprites/progress_ph.png" id="1_7jih1"]
+[ext_resource type="Script" uid="uid://dbe1sye5vnxyj" path="res://Scripts/charge_bar.gd" id="2_3yep5"]
+
+[node name="charge_bar" type="TextureProgressBar" unique_id=1183743767]
+offset_right = 50.0
+offset_bottom = 360.0
+max_value = 150.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_under = ExtResource("1_7jih1")
+texture_progress = ExtResource("1_7jih1")
+tint_progress = Color(1, 0.32941177, 1, 1)
+script = ExtResource("2_3yep5")
