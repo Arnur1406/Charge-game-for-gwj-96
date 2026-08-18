@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://pil3o55h3kuw"]
+
+[ext_resource type="Texture2D" uid="uid://bh8q03n606y5d" path="res://Assets/Sprites/TransitionSprite.png" id="1_krwre"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vin40"]
+atlas = ExtResource("1_krwre")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sxkv"]
+atlas = ExtResource("1_krwre")
+region = Rect2(640, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd3nk"]
+atlas = ExtResource("1_krwre")
+region = Rect2(1280, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nemr"]
+atlas = ExtResource("1_krwre")
+region = Rect2(1920, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k12m"]
+atlas = ExtResource("1_krwre")
+region = Rect2(2560, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iaif7"]
+atlas = ExtResource("1_krwre")
+region = Rect2(3200, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m08v2"]
+atlas = ExtResource("1_krwre")
+region = Rect2(3840, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpro6"]
+atlas = ExtResource("1_krwre")
+region = Rect2(4480, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5xdg"]
+atlas = ExtResource("1_krwre")
+region = Rect2(5120, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62o6d"]
+atlas = ExtResource("1_krwre")
+region = Rect2(5760, 0, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1515m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vin40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sxkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd3nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nemr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k12m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iaif7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m08v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpro6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5xdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62o6d")
+}],
+"loop": 0,
+"name": &"AnimationTransition",
+"speed": 20.0
+}]
+
+[node name="SceneTransition" type="CanvasLayer" unique_id=1588473869]
+visible = false
+
+[node name="AnimationForTransition" type="AnimatedSprite2D" parent="." unique_id=2057220832]
+position = Vector2(320, 180)
+sprite_frames = SubResource("SpriteFrames_1515m")
+animation = &"AnimationTransition"
