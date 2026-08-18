@@ -6,6 +6,10 @@ const JUMP_VELOCITY = -300.0
 var double_jump_available : bool = true
 
 
+func _ready() -> void:
+	SignalHub.player_died.connect(player_died)
+
+
 func _physics_process(delta: float) -> void:
 	get_movement_input(delta)
 	move_and_slide()
@@ -40,3 +44,8 @@ func _input(_event: InputEvent) -> void:
 func charge(charge_button: String) -> void:
 	if Input.is_action_just_pressed(charge_button):
 		print("charge")
+
+
+
+func player_died() -> void:
+	call_deferred("queue_free")
