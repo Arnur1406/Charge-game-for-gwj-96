@@ -7,7 +7,7 @@
 [node name="ChargeGiverEnemy" type="Area2D" unique_id=194794785]
 script = ExtResource("1_3smqj")
 enemy_speed = 40.0
-enemy_charge = 35
+enemy_charge = 35.0
 metadata/_custom_type_script = "uid://crckq3pf7jk0c"
 
 [node name="TemporaryTexture" type="Polygon2D" parent="." unique_id=1215521953]
@@ -26,3 +26,5 @@ scale = Vector2(0.5, 0.5)
 [node name="RightSide" type="RayCast2D" parent="." unique_id=1173561565]
 position = Vector2(16, 0)
 scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

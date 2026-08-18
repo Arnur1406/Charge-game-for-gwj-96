@@ -7,7 +7,7 @@
 [node name="ChargeTakerEnemy" type="Area2D" unique_id=846047806]
 script = ExtResource("1_3111x")
 enemy_speed = 50.0
-enemy_charge = -35
+enemy_charge = -35.0
 metadata/_custom_type_script = "uid://crckq3pf7jk0c"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1295633470]
@@ -26,3 +26,5 @@ scale = Vector2(0.5, 0.5)
 [node name="RightSide" type="RayCast2D" parent="." unique_id=1161890073]
 position = Vector2(16, 0)
 scale = Vector2(0.5, 0.5)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

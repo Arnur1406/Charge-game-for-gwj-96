@@ -12,7 +12,6 @@ const REDUCTION_RATE: float = 10
 @export var mid_charge: Array[int] = [35, 101]
 @export var low_charge: Array[int] = [20, 130]
 
-
 var over_under_charged: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -38,7 +37,7 @@ func increment_value(val: float, delta: float) -> void:
 	value += val * delta
 	if value <= 0 or value >= max_charge:
 		over_under_charged = true
-	set_colour()
+	#set_colour()
 
 
 func reduce_charge(reducing_value: float, delta: float) -> void:
