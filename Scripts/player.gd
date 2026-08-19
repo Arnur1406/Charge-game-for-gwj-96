@@ -82,9 +82,9 @@ func player_died() -> void:
 func state_change() -> void:
 	if velocity.x == 0 and velocity.y == 0:
 		current_state = STATE.IDLE
-	if velocity.y > 0:
+	elif velocity.y > 0:
 		current_state = STATE.FALL
-	if velocity.y<0:
+	elif velocity.y<0:
 		current_state = STATE.JUMP
 	elif abs(velocity.x) > 0:
 		current_state = STATE.WALK
