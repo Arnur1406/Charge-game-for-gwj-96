@@ -37,9 +37,10 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+theme_override_constants/margin_top = 38
 
 [node name="health_bar" parent="health_margin_container" unique_id=1845976700 instance=ExtResource("4_t3gp5")]
-custom_minimum_size = Vector2(200, 40)
+custom_minimum_size = Vector2(300, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 start_charge = 100

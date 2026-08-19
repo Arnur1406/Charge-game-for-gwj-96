@@ -1,10 +1,12 @@
 [gd_scene format=4 uid="uid://cm3f0kfw3so3p"]
 
+[ext_resource type="Script" uid="uid://dqb8qt2uy33ds" path="res://Scripts/main_scene.gd" id="1_6ev3c"]
 [ext_resource type="Texture2D" uid="uid://dm3h7hh7kg115" path="res://Assets/Sprites/Terrain (16x16).png" id="1_52fb6"]
 [ext_resource type="PackedScene" uid="uid://bhq80btpgity" path="res://Scenes/player.tscn" id="2_6l7je"]
 [ext_resource type="PackedScene" uid="uid://b5r7enco0iv0v" path="res://Scenes/charge_taker_enemy.tscn" id="3_jv6wh"]
 [ext_resource type="PackedScene" uid="uid://vpme6ta7guhy" path="res://Scenes/charge_giver_enemy.tscn" id="4_x6ack"]
 [ext_resource type="PackedScene" uid="uid://c1rcx1ugv48qw" path="res://Scenes/in_game_ui.tscn" id="5_iacmt"]
+[ext_resource type="PackedScene" uid="uid://dpqxbmnuw428i" path="res://Scenes/spawner.tscn" id="7_maf8m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6l7je"]
 texture = ExtResource("1_52fb6")
@@ -278,6 +280,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_6l7je")
 
 [node name="MainScene" type="Node2D" unique_id=671823220]
+script = ExtResource("1_6ev3c")
 
 [node name="Map" type="Node2D" parent="." unique_id=2118249787]
 
@@ -312,3 +315,5 @@ position = Vector2(125, 79)
 [node name="TemporaryLabel" type="Label" parent="UI" unique_id=109294591]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="spawner" parent="." unique_id=1798160042 instance=ExtResource("7_maf8m")]

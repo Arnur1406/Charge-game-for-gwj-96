@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		STATE.IDLE: animated_sprite_2d.play("Idle")
 #		STATE.CHARGING: animated_sprite_2d.play("Charging")
 #		STATE.ABILITY: animated_sprite_2d.play("Ability")
-	temporary_label.text = "current state:" + str(STATE.find_key(current_state)) + "   hp: " + str(int(health_bar.value))
+	temporary_label.text = "current state:" + str(STATE.find_key(current_state)) + "   hp: " + str(int(health_bar.value)) + "  Batteries %d" % [GameManager.get_batteries()] 
 	move_and_slide()
 
 
@@ -71,6 +71,7 @@ func _input(_event: InputEvent) -> void:
 
 func charge(charge_button: String) -> void:
 	if Input.is_action_just_pressed(charge_button):
+		GameManager.use_battery()
 		print("charge")
 
 

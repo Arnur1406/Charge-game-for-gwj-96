@@ -20,6 +20,7 @@ var has_good_charge: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.charge_bar = self
 	has_good_charge = true
 	max_value = max_charge
 	step = 0.0
@@ -41,7 +42,7 @@ func increment_value(val: float, delta: float) -> void:
 		value += val
 	else:
 		value += val * delta
-	if (value <= 0 or value >= max_charge) and has_good_charge == true:
+	if (value <= 0 or value >= low_charge[1]) and has_good_charge == true:
 		has_good_charge = false
 		over_under_charged.emit()
 	else:
