@@ -1,9 +1,22 @@
 extends CharacterBody2D
 
+enum STATE{
+	IDLE,
+	JUMP,
+	FALL,
+	ABILITY,
+	CHARGING,
+	WALK,
+}
+@onready var health_bar : HealthBar = get_tree().current_scene.find_child("in_game_ui").find_child("health_bar")
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var temporary_label: Label = $"../../UI/TemporaryLabel"
 
 var max_speed = 200.0
 const JUMP_VELOCITY = -300.0
 var double_jump_available : bool = true
+var current_state : STATE = STATE.IDLE
 
 
 func _ready() -> void:
@@ -12,7 +25,17 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	get_movement_input(delta)
+	state_change()
+	match current_state:
+#		STATE.FALL: animated_sprite_2d.play("Fall")
+		STATE.JUMP: animated_sprite_2d.play("Jump")
+#		STATE.WALK: animated_sprite_2d.play("WALK")
+		STATE.IDLE: animated_sprite_2d.play("Idle")
+#		STATE.CHARGING: animated_sprite_2d.play("Charging")
+#		STATE.ABILITY: animated_sprite_2d.play("Ability")
+	temporary_label.text = "current state:" + str(STATE.find_key(current_state)) + "   hp: " + str(int(health_bar.value))
 	move_and_slide()
+
 
 
 func get_movement_input(delta: float):
@@ -36,6 +59,11 @@ func get_movement_input(delta: float):
 		velocity.x = max_speed * direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, max_speed)
+	if direction > 0:
+		animated_sprite_2d.flip_h = false
+	if direction < 0:
+		animated_sprite_2d.flip_h = true
+
 
 func _input(_event: InputEvent) -> void:
 	charge("charge")
@@ -48,4 +76,15 @@ func charge(charge_button: String) -> void:
 
 
 func player_died() -> void:
-	call_deferred("queue_free")
+	print("player died")
+
+
+func state_change() -> void:
+	if velocity.x == 0 and velocity.y == 0:
+		current_state = STATE.IDLE
+	if velocity.y > 0:
+		current_state = STATE.FALL
+	if velocity.y<0:
+		current_state = STATE.JUMP
+	elif abs(velocity.x) > 0:
+		current_state = STATE.WALK

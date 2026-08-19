@@ -30,6 +30,7 @@ layout_mode = 2
 texture_under = ExtResource("2_gtfj6")
 texture_progress = ExtResource("3_t3gp5")
 tint_progress = Color(1, 1, 1, 1)
+start_charge = 100
 
 [node name="health_margin_container" type="MarginContainer" parent="." unique_id=519136858]
 layout_mode = 1
@@ -41,3 +42,4 @@ grow_horizontal = 2
 custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
 size_flags_horizontal = 4
+start_charge = 100
