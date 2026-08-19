@@ -6,13 +6,10 @@ class_name HealthBar
 
 
 
-const COLOUR_DANGER: Color = Color("#cc0000")
-const COLOUR_MID: Color = Color("#ff9900")
-const COLOUR_GOOD: Color = Color("#33cc33")
 const REDUCTION_RATE: float = 10
 
 @export var max_health: int = 100
-@export var start_charge: int = 50
+@export var start_health: int = 100
 @export var mid_health: int = 40
 @export var low_health: int = 20
 
@@ -23,12 +20,13 @@ var drain_health: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalHub.deal_damage.connect(deal_damage)
 	drain_health = false
 	charge_bar.good_charge.connect(good_charge)
 	charge_bar.over_under_charged.connect(over_under_charged)
 	max_value = max_health
 	step = 0.0
-	value = start_charge
+	value = start_health
 
 ##called when the charge amount is good
 func good_charge() -> void:
@@ -38,6 +36,16 @@ func good_charge() -> void:
 func over_under_charged() -> void:
 	drain_health = true
 
+
+func deal_damage(val: float, delta: float) -> void:
+	increment_value(-val, delta)
+
+
+func increment_value(val: float, delta: float) -> void:
+	if delta == 0.0:
+		value += val
+	else:
+		value += val * delta
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

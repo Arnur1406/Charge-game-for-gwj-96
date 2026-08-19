@@ -29,8 +29,6 @@ func use_battery() -> void:
 	if current_batteries <= 0:
 		print("no batteries")
 	else:
-		assert(charge_bar)
-		charge_bar.increment_value(50, 0.0)
 		current_batteries -= 1
 
 func add_battery() -> void:

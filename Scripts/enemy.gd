@@ -25,3 +25,7 @@ func _process(delta: float) -> void:
 		direction = -1
 	if not left_side_ray.is_colliding():
 		direction = 1
+
+
+func _on_body_entered(body: Node2D) -> void:
+	SignalHub.deal_damage.emit(enemy_damage, 0.0)

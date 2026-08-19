@@ -20,7 +20,7 @@ var has_good_charge: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	GameManager.charge_bar = self
+	SignalHub.used_battery.connect(increment_value)
 	has_good_charge = true
 	max_value = max_charge
 	step = 0.0
