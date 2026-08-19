@@ -27,9 +27,9 @@ func _physics_process(delta: float) -> void:
 	get_movement_input(delta)
 	state_change()
 	match current_state:
-#		STATE.FALL: animated_sprite_2d.play("Fall")
+		STATE.FALL: animated_sprite_2d.play("Fall")
 		STATE.JUMP: animated_sprite_2d.play("Jump")
-#		STATE.WALK: animated_sprite_2d.play("WALK")
+		STATE.WALK: animated_sprite_2d.play("Walk")
 		STATE.IDLE: animated_sprite_2d.play("Idle")
 #		STATE.CHARGING: animated_sprite_2d.play("Charging")
 #		STATE.ABILITY: animated_sprite_2d.play("Ability")
