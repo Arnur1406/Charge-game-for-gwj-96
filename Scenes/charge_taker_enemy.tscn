@@ -5,7 +5,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1515m"]
 
 [node name="ChargeTakerEnemy" type="Area2D" unique_id=846047806]
-collision_layer = 16
+collision_layer = 144
 collision_mask = 3
 script = ExtResource("1_3111x")
 enemy_damage = 15

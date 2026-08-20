@@ -13,6 +13,7 @@ enum STATE{
 @onready var ability_area: Area2D = $AbilityArea
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var temporary_label: Label = $"../../UI/TemporaryLabel"
+@onready var ability_shape: CollisionShape2D = $AbilityArea/AbilityShape
 
 var max_speed : float = 200.0
 const JUMP_VELOCITY : float = -300.0
@@ -23,6 +24,7 @@ var can_use_ability : bool = true
 
 func _ready() -> void:
 	SignalHub.player_died.connect(player_died)
+	ability_shape.disabled = true
 
 
 func _physics_process(delta: float) -> void:
@@ -84,24 +86,30 @@ func player_died() -> void:
 
 
 func state_change() -> void:
+	if current_state == STATE.ABILITY:
+		return
 	if Input.is_action_just_pressed("ability") and can_use_ability:
 		current_state = STATE.ABILITY
 		ability()
-	elif velocity.x == 0 and velocity.y == 0:
-		current_state = STATE.IDLE
-	elif velocity.y > 0:
+		return
+	if velocity.y > 0:
 		current_state = STATE.FALL
 	elif velocity.y<0:
 		current_state = STATE.JUMP
-	elif abs(velocity.x) > 0:
+	elif velocity.x != 0:
 		current_state = STATE.WALK
+	else:
+		current_state = STATE.IDLE
 
 
 func ability() -> void:
 	can_use_ability = false
 	ability_area.visible = true
+	ability_shape.disabled = false
 	ability_sprite.play("default")
 	await ability_sprite.animation_finished
+	current_state = STATE.IDLE
+	ability_shape.disabled = true
 	ability_area.visible = false
 	await get_tree().create_timer(5.0).timeout
 	can_use_ability = true
@@ -109,4 +117,4 @@ func ability() -> void:
 
 func _on_ability_area_area_entered(area: Area2D) -> void:
 	if area.has_method("thing"):
-		area.is_stunned = true
+		area.thing()

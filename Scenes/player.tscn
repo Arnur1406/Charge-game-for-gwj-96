@@ -284,7 +284,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_48xlc"]
 size = Vector2(17, 25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uk6wy"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpa8y"]
 atlas = ExtResource("7_8erm5")
@@ -393,10 +393,12 @@ drag_vertical_enabled = true
 
 [node name="AbilityArea" type="Area2D" parent="." unique_id=2040783132]
 visible = false
+scale = Vector2(2, 2)
+collision_mask = 128
 
 [node name="AbilityShape" type="CollisionShape2D" parent="AbilityArea" unique_id=583150917]
 scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_uk6wy")
+shape = SubResource("CircleShape2D_3smsa")
 
 [node name="AbilitySprite" type="AnimatedSprite2D" parent="AbilityArea" unique_id=1961089320]
 sprite_frames = SubResource("SpriteFrames_1515m")

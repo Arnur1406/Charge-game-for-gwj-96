@@ -27,7 +27,6 @@ func _process(delta: float) -> void:
 		direction = -1
 	if not left_side_ray.is_colliding():
 		direction = 1
-	thing()
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -36,6 +35,6 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func thing() -> void:
-	if is_stunned:
-		await get_tree().create_timer(3.0).timeout
+	is_stunned = true
+	await get_tree().create_timer(3.0).timeout
 	is_stunned = false
