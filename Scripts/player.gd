@@ -72,7 +72,7 @@ func _input(_event: InputEvent) -> void:
 
 
 func charge(charge_button: String) -> void:
-	if Input.is_action_just_pressed(charge_button):
+	if Input.is_action_just_pressed(charge_button) and GameManager.get_batteries() > 0:
 		GameManager.use_battery()
 		SignalHub.used_battery.emit(70, 0.0)
 		print("charge")
