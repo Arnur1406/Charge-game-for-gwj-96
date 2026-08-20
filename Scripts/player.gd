@@ -9,14 +9,16 @@ enum STATE{
 	WALK,
 }
 @onready var health_bar : HealthBar = get_tree().current_scene.find_child("in_game_ui").find_child("health_bar")
-
+@onready var ability_sprite: AnimatedSprite2D = $AbilityArea/AbilitySprite
+@onready var ability_area: Area2D = $AbilityArea
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var temporary_label: Label = $"../../UI/TemporaryLabel"
 
-var max_speed = 200.0
-const JUMP_VELOCITY = -300.0
+var max_speed : float = 200.0
+const JUMP_VELOCITY : float = -300.0
 var double_jump_available : bool = true
 var current_state : STATE = STATE.IDLE
+var can_use_ability : bool = true
 
 
 func _ready() -> void:
@@ -32,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		STATE.WALK: animated_sprite_2d.play("Walk")
 		STATE.IDLE: animated_sprite_2d.play("Idle")
 #		STATE.CHARGING: animated_sprite_2d.play("Charging")
-#		STATE.ABILITY: animated_sprite_2d.play("Ability")
+		STATE.ABILITY: animated_sprite_2d.play("Ability")
 	temporary_label.text = "current state:" + str(STATE.find_key(current_state)) + "   hp: " + str(int(health_bar.value)) + "  Batteries %d" % [GameManager.get_batteries()] 
 	move_and_slide()
 
@@ -82,7 +84,10 @@ func player_died() -> void:
 
 
 func state_change() -> void:
-	if velocity.x == 0 and velocity.y == 0:
+	if Input.is_action_just_pressed("ability") and can_use_ability:
+		current_state = STATE.ABILITY
+		ability()
+	elif velocity.x == 0 and velocity.y == 0:
 		current_state = STATE.IDLE
 	elif velocity.y > 0:
 		current_state = STATE.FALL
@@ -90,3 +95,18 @@ func state_change() -> void:
 		current_state = STATE.JUMP
 	elif abs(velocity.x) > 0:
 		current_state = STATE.WALK
+
+
+func ability() -> void:
+	can_use_ability = false
+	ability_area.visible = true
+	ability_sprite.play("default")
+	await ability_sprite.animation_finished
+	ability_area.visible = false
+	await get_tree().create_timer(5.0).timeout
+	can_use_ability = true
+
+
+func _on_ability_area_area_entered(area: Area2D) -> void:
+	if area.has_method("thing"):
+		area.is_stunned = true
