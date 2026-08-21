@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cg7b8upjrklbe" path="res://Assets/Sprites/Batteries2.png" id="2_gtfj6"]
 [ext_resource type="Texture2D" uid="uid://chx7refe0ud1c" path="res://Assets/Sprites/Batteries1.png" id="3_t3gp5"]
 [ext_resource type="PackedScene" uid="uid://5oju6fp7ylm3" path="res://Scenes/health_bar.tscn" id="4_t3gp5"]
+[ext_resource type="Texture2D" uid="uid://beb33uk37cc1p" path="res://Assets/Sprites/AbilityButton.png" id="5_orthm"]
+[ext_resource type="Script" uid="uid://d3k17ff1h6snf" path="res://Scripts/ability_button.gd" id="6_2ovgp"]
+[ext_resource type="Texture2D" uid="uid://cw3ts46tk6xh2" path="res://Assets/Sprites/HPText.png" id="7_dwyif"]
+[ext_resource type="FontFile" uid="uid://d387psltf727v" path="res://Assets/Fonts/OnceUponATimeFont.ttf" id="8_s8663"]
 
 [node name="in_game_ui" type="Control" unique_id=1240375359]
 layout_mode = 3
@@ -47,3 +51,32 @@ size_flags_horizontal = 4
 audio_player = NodePath("../../AudioStreamPlayer")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1060580384]
+
+[node name="AbilityButton" type="Button" parent="." unique_id=1053589002]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 304.0
+offset_right = 632.0
+offset_bottom = 344.0
+icon = ExtResource("5_orthm")
+script = ExtResource("6_2ovgp")
+
+[node name="HpText" type="TextureRect" parent="." unique_id=96481342]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 42.0
+offset_right = 169.0
+offset_bottom = 74.0
+texture = ExtResource("7_dwyif")
+
+[node name="HpLabel" type="Label" parent="." unique_id=44805597]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 42.0
+offset_right = 537.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("8_s8663")
+theme_override_font_sizes/font_size = 32
+text = "100"
+
+[connection signal="pressed" from="AbilityButton" to="AbilityButton" method="_on_pressed"]

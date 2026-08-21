@@ -14,6 +14,7 @@ enum STATE{
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var temporary_label: Label = $"../../UI/TemporaryLabel"
 @onready var ability_shape: CollisionShape2D = $AbilityArea/AbilityShape
+@onready var hp_label : Label = get_tree().current_scene.find_child("in_game_ui").find_child("HpLabel")
 
 var max_speed : float = 200.0
 const JUMP_VELOCITY : float = -300.0
@@ -38,6 +39,7 @@ func _physics_process(delta: float) -> void:
 #		STATE.CHARGING: animated_sprite_2d.play("Charging")
 		STATE.ABILITY: animated_sprite_2d.play("Ability")
 	temporary_label.text = "current state:" + str(STATE.find_key(current_state)) + "   hp: " + str(int(health_bar.value)) + "  Batteries %d" % [GameManager.get_batteries()] 
+	hp_label.text = str(int(health_bar.value))
 	move_and_slide()
 
 

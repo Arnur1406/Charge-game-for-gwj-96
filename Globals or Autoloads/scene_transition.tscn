@@ -81,6 +81,7 @@ animations = [{
 }]
 
 [node name="SceneTransition" type="CanvasLayer" unique_id=1588473869]
+layer = 5
 visible = false
 
 [node name="AnimationForTransition" type="AnimatedSprite2D" parent="." unique_id=2057220832]
