@@ -12,9 +12,10 @@ const REDUCTION_RATE: float = 10
 @export var start_health: int = 100
 @export var mid_health: int = 40
 @export var low_health: int = 20
-
+@export var audio_player: AudioStreamPlayer
 
 var drain_health: bool = false
+var player_died: bool = false
 
 
 
@@ -22,6 +23,7 @@ var drain_health: bool = false
 func _ready() -> void:
 	SignalHub.deal_damage.connect(deal_damage)
 	drain_health = false
+	player_died = false
 	charge_bar.good_charge.connect(good_charge)
 	charge_bar.over_under_charged.connect(over_under_charged)
 	max_value = max_health
@@ -53,5 +55,7 @@ func _process(delta: float) -> void:
 	if drain_health == true:
 		value -= REDUCTION_RATE * delta
 	##checks if health is drained
-	if value <= 0:
+	if value <= 0 and player_died == false:
+		player_died = true
+		AudioManager.play_sound(audio_player, AudioManager.SOUNDS.death)
 		SignalHub.player_died.emit()

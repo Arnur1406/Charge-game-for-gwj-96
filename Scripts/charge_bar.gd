@@ -16,6 +16,7 @@ var has_good_charge: bool = true
 @export var start_charge: int = 150
 @export var mid_charge: Array[int] = [35, 101]
 @export var low_charge: Array[int] = [20, 130]
+@export var audio_player: AudioStreamPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +41,8 @@ func set_colour() -> void:
 func increment_value(val: float, delta: float) -> void:
 	if delta == 0.0:
 		value += val
+		if value > 0:
+			AudioManager.play_sound(audio_player, AudioManager.SOUNDS.charge)
 	else:
 		value += val * delta
 	if (value <= 0 or value >= low_charge[1]) and has_good_charge == true:
