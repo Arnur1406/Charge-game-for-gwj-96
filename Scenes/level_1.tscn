@@ -129,6 +129,9 @@ position = Vector2(543, 206)
 [node name="ChargeGiverEnemy" parent="Entity/Enemy" unique_id=194794785 instance=ExtResource("4_xrdnt")]
 position = Vector2(180, 223)
 
+[node name="ChargeGiverEnemy2" parent="Entity/Enemy" unique_id=1865180023 instance=ExtResource("4_xrdnt")]
+position = Vector2(98, 108)
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=2012154054]
 
 [node name="in_game_ui" parent="UI" unique_id=1240375359 instance=ExtResource("5_wrinw")]

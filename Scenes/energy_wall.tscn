@@ -58,9 +58,14 @@ frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="." unique_id=540884646]
 
+[node name="ThirdTimer" type="Timer" parent="." unique_id=958760354]
+wait_time = 3.0
+
 [node name="AnotherTimer" type="Timer" parent="." unique_id=54232461]
 wait_time = 2.0
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ThirdTimer" to="." method="_on_third_timer_timeout"]
