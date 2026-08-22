@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://c7sncljl12mh8"]
+
+[ext_resource type="FontFile" uid="uid://d387psltf727v" path="res://Assets/Fonts/OnceUponATimeFont.ttf" id="1_aot8r"]
+
+[resource]
+font = ExtResource("1_aot8r")
+font_size = 24
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
