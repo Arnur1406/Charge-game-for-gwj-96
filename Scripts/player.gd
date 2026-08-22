@@ -15,6 +15,7 @@ enum STATE{
 @onready var temporary_label: Label = $"../../UI/TemporaryLabel"
 @onready var ability_shape: CollisionShape2D = $AbilityArea/AbilityShape
 @onready var hp_label : Label = get_tree().current_scene.find_child("in_game_ui").find_child("HpLabel")
+@onready var charge_bar : ChargeBar = get_tree().current_scene.find_child("in_game_ui").find_child("charge_bar")
 
 var max_speed : float = 200.0
 const JUMP_VELOCITY : float = -300.0
@@ -90,9 +91,10 @@ func player_died() -> void:
 func state_change() -> void:
 	if current_state == STATE.ABILITY:
 		return
-	if Input.is_action_just_pressed("ability") and can_use_ability:
+	if Input.is_action_just_pressed("ability") and can_use_ability and charge_bar.value >= 30:
 		current_state = STATE.ABILITY
 		ability()
+		charge_bar.increment_value(-30.0, 0.0)
 		return
 	if velocity.y > 0:
 		current_state = STATE.FALL

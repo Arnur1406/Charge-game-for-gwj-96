@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cg7b8upjrklbe" path="res://Assets/Sprites/Batteries2.png" id="2_gtfj6"]
 [ext_resource type="Texture2D" uid="uid://chx7refe0ud1c" path="res://Assets/Sprites/Batteries1.png" id="3_t3gp5"]
 [ext_resource type="PackedScene" uid="uid://5oju6fp7ylm3" path="res://Scenes/health_bar.tscn" id="4_t3gp5"]
+[ext_resource type="FontFile" uid="uid://6wty4yhwpujm" path="res://Assets/Fonts/GameFont.ttf" id="5_cpmi5"]
 [ext_resource type="Texture2D" uid="uid://beb33uk37cc1p" path="res://Assets/Sprites/AbilityButton.png" id="5_orthm"]
 [ext_resource type="Script" uid="uid://d3k17ff1h6snf" path="res://Scripts/ability_button.gd" id="6_2ovgp"]
 [ext_resource type="Texture2D" uid="uid://cw3ts46tk6xh2" path="res://Assets/Sprites/HPText.png" id="7_dwyif"]
+[ext_resource type="FontFile" uid="uid://bj8t7vh47tq6d" path="res://Assets/Fonts/Cairopixel.ttf" id="8_6ra50"]
 [ext_resource type="FontFile" uid="uid://d387psltf727v" path="res://Assets/Fonts/OnceUponATimeFont.ttf" id="8_s8663"]
 
 [node name="in_game_ui" type="Control" unique_id=1240375359]
@@ -58,8 +60,22 @@ offset_left = 592.0
 offset_top = 304.0
 offset_right = 632.0
 offset_bottom = 344.0
+theme_override_fonts/font = ExtResource("5_cpmi5")
+theme_override_font_sizes/font_size = 32
 icon = ExtResource("5_orthm")
 script = ExtResource("6_2ovgp")
+
+[node name="AbilityLabel" type="Label" parent="AbilityButton" unique_id=935770]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -52.0
+offset_right = 48.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("8_6ra50")
+text = "Short Circuit
+Cooldown 5 sec
+30%"
+horizontal_alignment = 2
 
 [node name="HpText" type="TextureRect" parent="." unique_id=96481342]
 layout_mode = 0

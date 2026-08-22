@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c2l07m2mdrobg" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://d387psltf727v" path="res://Assets/Fonts/OnceUponATimeFont.ttf" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://bqix6ry4gsqhj" path="res://Scripts/options_control.gd" id="3_1ehe0"]
+[ext_resource type="FontFile" uid="uid://bj8t7vh47tq6d" path="res://Assets/Fonts/Cairopixel.ttf" id="4_ce3w2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_28flt"]
 bg_color = Color(0, 0, 0, 1)
@@ -45,6 +47,59 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(1, 0.54901963, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_uk6wy"]
+specular_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1515m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1515m"]
+bg_color = Color(0.6, 0.6, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uk6wy"]
+bg_color = Color(0.6, 0.6, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0.8, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7e3p"]
+bg_color = Color(0.6, 0.6, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.5647059, 1, 0.59607846, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xie2f"]
+bg_color = Color(0.6, 0.6, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.5647059, 1, 0.59607846, 1)
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
@@ -115,5 +170,108 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ce3w2")
 text = "QUIT"
 
+[node name="UI" type="CanvasLayer" parent="." unique_id=1785741321]
+
+[node name="OptionsControl" type="Control" parent="UI" unique_id=521401361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_1ehe0")
+
+[node name="TextureRect" type="TextureRect" parent="UI/OptionsControl" unique_id=1372869894]
+modulate = Color(0, 0, 0, 0.7058824)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_uk6wy")
+
+[node name="TextureRect2" type="TextureRect" parent="UI/OptionsControl" unique_id=727143106]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 0
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 480.0
+offset_bottom = 270.0
+texture = SubResource("CanvasTexture_1515m")
+
+[node name="ReturnButton" type="Button" parent="UI/OptionsControl" unique_id=394575831]
+layout_mode = 0
+offset_left = 412.0
+offset_top = 239.0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("1_48xlc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1515m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uk6wy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y7e3p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xie2f")
+text = "Return"
+
+[node name="OptionsButton" type="Button" parent="UI/OptionsControl" unique_id=2047289055]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 90.0
+offset_right = 480.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("1_48xlc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1515m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uk6wy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y7e3p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xie2f")
+text = "Options"
+
+[node name="HelpButton" type="Button" parent="UI/OptionsControl" unique_id=427450247]
+layout_mode = 0
+offset_left = 287.0
+offset_top = 90.0
+offset_right = 397.0
+offset_bottom = 115.0
+scale = Vector2(1, 1.2400024)
+theme_override_fonts/font = ExtResource("1_48xlc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1515m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uk6wy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_y7e3p")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xie2f")
+text = "How To Play"
+
+[node name="OptionsLabel" type="Label" parent="UI/OptionsControl" unique_id=1561107742]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 130.0
+offset_right = 208.0
+offset_bottom = 153.0
+theme_override_fonts/font = ExtResource("4_ce3w2")
+text = "Controls
+A or Left Arrow to Move Left
+D or Right Arrow to Move Right
+Space to Jump or Double Jump
+E to Use Ability
+Z to Use Battery"
+
+[node name="HelpLabel" type="Label" parent="UI/OptionsControl" unique_id=345274408]
+visible = false
+layout_mode = 0
+offset_left = 168.0
+offset_top = 130.0
+offset_right = 449.0
+offset_bottom = 235.0
+theme_override_fonts/font = ExtResource("4_ce3w2")
+text = "How To Play
+You Always Have To Go Up.
+Your Battery On Left Side Of The Screen
+While Playing Should Not Go Too High Or Too Low.
+Make Sure To Not Lose All HP.
+Find The Door At The Top."
+
 [connection signal="pressed" from="ButtonControl/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="ButtonControl/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="ButtonControl/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="UI/OptionsControl/ReturnButton" to="UI/OptionsControl" method="_on_return_button_pressed"]
+[connection signal="pressed" from="UI/OptionsControl/OptionsButton" to="UI/OptionsControl" method="_on_options_button_pressed"]
+[connection signal="pressed" from="UI/OptionsControl/HelpButton" to="UI/OptionsControl" method="_on_help_button_pressed"]
