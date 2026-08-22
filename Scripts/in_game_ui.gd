@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("charge"):
 		if v_box_gameover.visible:
+			get_tree().paused = false
 			get_tree().reload_current_scene()
 			player_died = false
 		if v_box_level_complete.visible and player_died == false:
@@ -34,14 +35,14 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func level_complete() -> void:
 	if player_died == false:
-		#get_parent().get_parent().get_tree().ProcessMode.PROCESS_MODE_DISABLED
+		get_tree().paused = true
 		color_rect.show()
 		v_box_level_complete.show()
 
 
 func game_over() -> void:
 	if player_died == false:
-		#get_tree().paused
+		get_tree().paused = true
 		player_died = true
 		color_rect.show()
 		v_box_gameover.show()
